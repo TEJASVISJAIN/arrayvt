@@ -11,8 +11,8 @@ const AllServices = () => {
   return (
     <>
       <PageHeader heading={"Services All"} page={"Services All"} />
-      <Services isHeading={false} />
       <Metting />
+      <Services isHeading={false} />
       <Pricing />
       <WorkeProcess />
       <ScrollRestoration />

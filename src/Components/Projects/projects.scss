@@ -1,12 +1,13 @@
 //<<<--- project --->>>>//
 .project__wrapone {
-  columns: 2;
+  columns: 3;
   gap: 58px;
   @include breakpoint(max-xl) {
     gap: 40px;
   }
   @include breakpoint(max-lg) {
     gap: 45px;
+    columns: 2;
   }
   @include breakpoint(max-lg) {
     gap: 30px;

@@ -7,7 +7,16 @@
   right: -320px;
   top: 0;
   transition: all 0.4s;
-  overflow-y: scroll;
+  overflow-y: auto;  // Ensure vertical scrolling is enabled
+  overflow-x: hidden; // Prevent horizontal scrolling
+  box-sizing: border-box;
+  
+  // Remove the horizontal overflow for small screens
+  @media screen and (max-width: 768px) {
+    width: 100%;  // Drawer takes up the full width on small screens
+    right: -100%; // Hidden completely off-screen before activation
+  }
+
   .remove__click {
     width: 40px;
     height: 40px;
@@ -24,20 +33,33 @@
       color: var(--mtitle);
     }
   }
+
   .sub__contact__wrapper {
     padding: 40px 20px;
+    @media screen and (max-width: 768px) {
+      padding: 20px 10px;  // Adjust padding for smaller screens
+    }
+
     .side-logo {
       margin-bottom: 20px;
+      img {
+        max-width: 100%; // Ensure the logo scales appropriately
+      }
     }
+
     p {
       font-size: 14px;
       margin-bottom: 40px;
     }
+
     .sub__contact-left {
       gap: 24px;
       margin-bottom: 40px;
     }
+
     .social {
+      display: flex;
+      justify-content: flex-start; // Align social icons left
       li {
         a {
           width: 45px;
@@ -51,48 +73,26 @@
       }
     }
   }
+
   &::before {
     display: none;
   }
+
   &.active {
     right: 0px;
   }
-}
 
-.sub__contac-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  .icon {
-    width: 48px;
-    height: 48px;
-    background: var(--base);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    i {
-      color: var(--white);
-    }
-  }
-  .content {
-    .address {
-      color: rgba(255, 255, 255, 0.5);
-      @include bodyfont;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .textp {
-      color: var(--white);
-      @include bodyfont;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 120%;
-    }
-  }
+  // Ensure no horizontal overflow on mobile devices
+  // @media screen and (max-width: 768px) {
+  //   width: 100%; // Take up full screen width on mobile
+  //   right: 0;    // Slide into view fully
+  //   .sub__contact__wrapper {
+  //     p {
+  //       font-size: 12px;
+  //     }
+  //     .sub__contact-left {
+  //       gap: 16px;
+  //     }
+  //   }
+  // }
 }

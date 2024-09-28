@@ -286,22 +286,26 @@
 }
 
 //animation text
-.designers{
+.designers {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--white);
     color: transparent;
     transition: all 0.5s;
     position: relative;
-    &::before{
-        content: attr(data-text);
-        position: absolute;
-        color: var(--base);
-        width: 0px;
-        overflow: hidden;
-        animation: pulse-width 3s ease-in infinite;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: var(--base);
-    }
+    white-space: nowrap; /* Ensure that words don't wrap to the next line */
+    display: inline-block; /* Ensures proper alignment and keeps the text inline */
+}
+
+.designers::before {
+    content: attr(data-text);
+    position: absolute;
+    color: var(--base);
+    width: 0;
+    overflow: hidden;
+    animation: pulse-width 3s ease-in-out infinite;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--base);
+    white-space: nowrap; /* Prevent multi-part words from breaking onto new lines */
 }
 
 @keyframes pulse-width {

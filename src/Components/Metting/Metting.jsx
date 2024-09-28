@@ -1,9 +1,9 @@
 import React from "react";
 import {Envelope, GeoAlt} from "react-bootstrap-icons"
-import mettingImag from "../../assets/img/project/project-need.png"
+import mettingImag from "../../assets/img/banner/ShrutiXbanner-man.png"
 const Metting = () => {
   return (
-    <section className="project__metting overhid pt-120 pb-120">
+    <section className="project__metting overhid pt-120 pb-120" id="founder">
       <div className="container">
         <div className="row g-4 align-items-center">
           <div className="col-lg-7">

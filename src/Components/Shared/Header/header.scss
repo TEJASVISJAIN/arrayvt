@@ -407,4 +407,15 @@
     }
   }
 }
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color); // Use your text color variable
+
+  .icon {
+    font-size: 24px; // Adjust icon size as needed
+  }
+}
+
 //>>>>> Header section <<<<<//

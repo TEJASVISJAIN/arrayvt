@@ -8,7 +8,7 @@ const ProjectCard = ({
   subHeading,
   index,
   openLightbox,
-  navigate,
+  website,
 }) => {
   return (
     <div
@@ -17,16 +17,32 @@ const ProjectCard = ({
       data-aos-duration="1000"
     >
       <div onClick={() => openLightbox(index)} className="thumb mb-30 imgc">
-        <img src={image} alt="img" />
+        <img
+          src={image}
+          alt="img"
+          style={{
+            objectFit: "contain",
+            maxWidth: "100%", 
+            height: "auto",
+            imageRendering: "auto", 
+            WebkitImageRendering: "optimize-contrast",
+          }}
+        />
       </div>
       <div className="content d-flex align-items-center justify-content-between gap-2">
-        <Link to={navigate} className="left__cont">
+        <Link to={"/protfolio"} className="left__cont">
           <span className="base mb-2 mb-xxl-3 d-block text-uppercase">
             {heading}
           </span>
           <h3>{subHeading}</h3>
         </Link>
-        <div onClick={() => openLightbox(index)} className="common__icon imgc">
+        <div onClick={() => {
+          if(website.length > 0)
+           window.open(website, '_blank', 'noopener,noreferrer')
+            
+          // openLightbox(index)}
+        }
+        } className="common__icon imgc">
           <ArrowUpRight className="icon" />
         </div>
       </div>

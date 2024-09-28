@@ -23,3 +23,7 @@
 }
 
 //<--0-->// Default Color //<--0-->//
+.light-mode {
+  --body: #fff; // Dark mode base color
+  --white: var(--base)
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import {
   Facebook,
   Twitter,
@@ -13,35 +12,24 @@ import {
 import bannerMan from "../../assets/img/banner/banner-man.png";
 import scrollDown from "../../assets/img/banner/scroll-down.png";
 import dial from "../../assets/img/banner/dial.png";
-import bnArrow from "../../assets/img/banner/bn-arrow.png";
 import VideoPlay from "../Shared/VideoPlay/VideoPlay";
 
 const socalIcon = [
-  {
-    id: 1,
-    icon: <Facebook />,
-  },
-  {
-    id: 2,
-    icon: <Twitter />,
-  },
-  {
-    id: 3,
-    icon: <Linkedin />,
-  },
-  {
-    id: 4,
-    icon: <Globe />,
-  },
-  {
-    id: 5,
-    icon: <Instagram />,
-  },
+  { id: 1, icon: <Facebook /> },
+  { id: 2, icon: <Twitter /> },
+  { id: 3, icon: <Linkedin /> },
+  { id: 4, icon: <Globe /> },
+  { id: 5, icon: <Instagram /> },
 ];
+
+// Array of words for the word carousel
+const wordArray = ["Future", "B2B SaaS", "Cybersecurity", "Ed Tech", "AI"];
 
 const Banner = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [position, setPosition] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [fadeOut, setFadeOut] = useState(false);
 
   // Handle scrolling to make the bannerMan image scroll slower
   useEffect(() => {
@@ -70,6 +58,22 @@ const Banner = () => {
     setLightboxOpen(true);
   };
 
+  // Word carousel logic with fade-in/out effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeOut(true); // Start fading out
+
+      setTimeout(() => {
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % wordArray.length);
+        setFadeOut(false); // Fade in the new word after fade out
+      }, 800); // Half a second for the fade-out effect
+    }, 2500); // Change word every 3 seconds
+
+    return () => {
+      clearInterval(interval); // Cleanup interval on component unmount
+    };
+  }, []);
+
   return (
     <section id="home">
       <div className="container">
@@ -85,8 +89,12 @@ const Banner = () => {
               </Link>
               <h1>
                 <span className="hone"> Empowering</span>
-                <span className="d-block designers" data-text="Future">
-                  Future
+                <span
+                  className={`d-block designers word-carousel ${fadeOut ? "fade-out" : "fade-in"}`}
+                  data-text={wordArray[currentWordIndex]}
+                  style={{ minWidth: '200px', display: 'inline-block' }} // Add min-width to avoid word jumps
+                >
+                  {wordArray[currentWordIndex]}
                 </span>
                 <span className="hone">Founders</span>
               </h1>
@@ -102,9 +110,7 @@ const Banner = () => {
           </div>
           <div className="col-lg-4">
             <div
-              className={`banner__thumb  ${
-                position ? "right_up_animat" : "right_up"
-              }`}
+              className={`banner__thumb  ${position ? "right_up_animat" : "right_up"}`}
             >
               <img src={bannerMan} alt="man-img" />
             </div>

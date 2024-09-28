@@ -27,7 +27,7 @@ const menuList = [
   {
     id: 4,
     path: "/",
-    section: "#services",
+    section: "#founder",
     name: "Team",
     dropDown: [
       {
@@ -77,6 +77,7 @@ const Header = () => {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
   const [dropDownId, setDropDownId] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false); // New state for theme
 
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
@@ -102,8 +103,13 @@ const Header = () => {
     setDropDownId(id);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+    document.body.classList.toggle("light-mode");
+  };
+
   return (
-    <header className={`header-section `}>
+    <header className={`header-section`}>
       <div className="container">
         <div className="header-wrapper">
           <div className="main__logo">
@@ -119,7 +125,7 @@ const Header = () => {
                     {name}
                   </HashLink>
                   {dropDown?.length && (
-                    <ul className={`sub-menu ${dropDownId === id ? "sub-menu_active":""}`}>
+                    <ul className={`sub-menu ${dropDownId === id ? "sub-menu_active" : ""}`}>
                       {dropDown.map(({ id, name, path }) => {
                         return (
                           <li key={id}>
@@ -136,6 +142,10 @@ const Header = () => {
             })}
           </ul>
           <div className="menu__components d-flex align-items-center">
+            <button onClick={toggleDarkMode} className="theme-toggle">
+              {/* {isDarkMode ? <Sun className="icon" /> : <Moon className="icon" />} */}
+              {isDarkMode ? "Dark Mode" : "Light Mode"}
+            </button>
             <Link
               to="/contact"
               className="d-flex fw-500 cmn--btn align-items-center gap-2"
