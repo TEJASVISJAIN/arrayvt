@@ -1,7 +1,8 @@
 import React from "react";
 import { ArrowUpRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-const Service = ({ heading, subHeading, para, id }) => {
+
+const Service = ({ image, heading, subHeading, para, id }) => {
   return (
     <div
       className="service__unique__item pb-40 pt-40"
@@ -9,6 +10,11 @@ const Service = ({ heading, subHeading, para, id }) => {
       data-aos-duration="1000"
     >
       <div className="left__service">
+        {/* Image section */}
+        <div className="service__image">
+          <img src={image} alt={`${heading}'s profile`} />
+        </div>
+        
         <div className="serial__adjust">
           <span> {id} </span>
           <div className="cont">

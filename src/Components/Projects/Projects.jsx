@@ -14,6 +14,10 @@ const Projects = () => {
     setCurrentId(index);
     setLightboxOpen(true);
   };
+  const [visibleCount, setVisibleCount] = useState(6);
+  const handleShowMore = () => {
+    setVisibleCount(prevCount => prevCount + 3);
+  };
 
   return (
     <section className="project__section pt-120 pb-120" id="projects">
@@ -23,22 +27,34 @@ const Projects = () => {
           sortTitle={"Complete Project"}
         />
 
-        <div className={`project__wrapone`}>
-          {projectList.map(({ heading, id, image, subHeading, website }, index) => (
-            <ProjectCard
-              key={id}
-              image={image}
-              heading={heading}
-              subHeading={subHeading}
-              openLightbox={openLightbox}
-              index={index}
-              website={website}
-            />
-          ))}
-        </div>
+<div className="project__wrapone">
+      {projectList.slice(0, visibleCount).map(({ heading, id, image, subHeading, website }, index) => (
+        <ProjectCard
+          key={id}
+          image={image}
+          heading={heading}
+          subHeading={subHeading}
+          openLightbox={openLightbox}
+          index={index}
+          website={website}
+        />
+      ))}
+
+     
+    </div>
+    <div className="show-more-container d-flex justify-content-center">
+  {visibleCount < projectList.length && (
+    <div className="show-more">
+      <button className="d-flex fw-500 cmn--btn align-items-center gap-2" onClick={handleShowMore}>
+        <span className="get__text">Show More</span>
+      </button>
+    </div>
+  )}
+</div>
+
 
         <div className="custom__hover">
-          <Link to={"/protfolio"}
+          <Link to={"/portfolio"}
             className="hover__circle mauto"
             data-aos="zoom-out-down"
             data-aos-duration="2000"

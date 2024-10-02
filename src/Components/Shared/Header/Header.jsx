@@ -1,10 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+// Header.js
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { List, ArrowRight } from "react-bootstrap-icons";
-
 import Drawer from "../Drawer/Drawer";
 import logo from "../../../assets/img/logo/logo.png";
+//redux
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../../Redux/themeSlice";
+import ColorPicker from "../../ColorPicker/ColorPicker";
 
 const menuList = [
   {
@@ -77,14 +81,17 @@ const Header = () => {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
   const [dropDownId, setDropDownId] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false); // New state for theme
+  const theme = useSelector((state) => state.theme.theme); // Get the theme from Redux
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
+    // Set the theme class on the body when theme changes
+    document.body.className = theme === 'dark' ? 'dark-mode' : 'light-mode';
     return () => {
       window.removeEventListener("scroll", isSticky);
     };
-  }, []);
+  }, [theme]); // Add theme as dependency to update body class on theme change
 
   const isSticky = (e) => {
     const header = document.querySelector(".header-section");
@@ -103,9 +110,8 @@ const Header = () => {
     setDropDownId(id);
   };
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-    document.body.classList.toggle("light-mode");
+  const handleToggle = () => {
+    dispatch(toggleTheme()); // Dispatch the toggle action
   };
 
   return (
@@ -141,10 +147,10 @@ const Header = () => {
               );
             })}
           </ul>
+          <ColorPicker />
           <div className="menu__components d-flex align-items-center">
-            <button onClick={toggleDarkMode} className="theme-toggle">
-              {/* {isDarkMode ? <Sun className="icon" /> : <Moon className="icon" />} */}
-              {isDarkMode ? "Dark Mode" : "Light Mode"}
+            <button onClick={handleToggle} className="theme-toggle">
+              {theme === 'dark' ? "Dark Mode" : "Light Mode"}
             </button>
             <Link
               to="/contact"

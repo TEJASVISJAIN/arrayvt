@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 import { imagesList, projectList } from "../../Utlits/projectList";
 import PageHeader from "../../Components/Shared/PageHeader/PageHeader";
-import detailbg from "../../assets/img/protfolio/prot-detailsbig.png";
-import detailbg1 from "../../assets/img/protfolio/prot-detials2.png";
-import detailbg2 from "../../assets/img/protfolio/prot-detials2.png";
+import detailbg from "../../assets/img/portfolio/prot-detailsbig.png";
+import detailbg1 from "../../assets/img/portfolio/prot-detials2.png";
+import detailbg2 from "../../assets/img/portfolio/prot-detials2.png";
 import ProjectCard from "../../Components/Shared/ProjectCard/ProjectCard";
 import Lightbox from "../../Components/Shared/LightBox/LightBox";
 import { socialIcons } from "../../Utlits/socilIcons";
 
-const ProtfolioDetails = () => {
+const PortfolioDetails = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentId, setCurrentId] = useState(0);
 
@@ -29,7 +29,7 @@ const ProtfolioDetails = () => {
         heading={"Brand Identity & Motion Design"}
         page="Brand Identity & Motion Design"
       />
-      <section className="protfolio__details pb-120">
+      <section className="portfolio__details pb-120">
         <div className="container">
           <div
             className="details__bigthumb mb-60"
@@ -178,7 +178,7 @@ const ProtfolioDetails = () => {
               data-aos="fade-down"
               data-aos-duration="1000"
             >
-              Protfolio
+              Portfolio
             </span>
             <h2 className="fw-500" data-aos="fade-up" data-aos-duration="1000">
               Related Work
@@ -212,4 +212,4 @@ const ProtfolioDetails = () => {
   );
 };
 
-export default ProtfolioDetails;
+export default PortfolioDetails;

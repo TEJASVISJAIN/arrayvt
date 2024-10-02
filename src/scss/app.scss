@@ -54,13 +54,15 @@
 
 @import "../Components/Accordion/accordion.scss";
 
-// ----------- Protfolio
-@import "../Pages/Protfolio/protfolio.scss";
-@import "../Pages/ProtfolioDetails/protfolioDetails.scss";
-// ----------- Protfolio
+// ----------- Portfolio
+@import "../Pages/Portfolio/portfolio.scss";
+@import "../Pages/PortfolioDetails/portfolioDetails.scss";
+// ----------- Portfolio
 
 
 @import "../Pages/Contact/contact.scss";
 
 @import "../Components/Shared/Footer/footer.scss";
 
+@import "../Components/ColorPicker/colorpicker.scss";
+@import "../Components/ColorPicker/ColorPickerModal.scss";

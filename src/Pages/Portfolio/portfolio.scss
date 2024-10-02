@@ -1,0 +1,156 @@
+.portfolio__filter {
+  .tablinks {
+    border: 1px solid var(--cusborder);
+    padding: 10px 10px;
+    border-radius: 8px;
+    max-width: 683px;
+    margin: 0 auto 60px;
+    display: flex;
+    align-items: center;
+    .nav-links {
+      button {
+        border: none;
+        background: transparent;
+        text-align: center;
+        display: inline-block;
+        font-size: 18px;
+        color: var(--pra);
+        padding: 16px 24px;
+        border-radius: 5px;
+      }
+      &:not(:last-child) {
+        border-right: 1px solid var(--cusborder);
+      }
+      &.active {
+        button {
+          background: var(--base);
+          color: var(--title);
+        }
+      }
+    }
+    @include breakpoint(max-md) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      margin: 0 auto 40px;
+      .nav-links {
+        button {
+          display: block;
+          padding: 11px 20px;
+        }
+        border: 1px solid var(--cusborder);
+      }
+    }
+  }
+}
+
+/* Dropdown container */
+.dropdown {
+  width: 100%; /* Full width */
+  position: relative; /* Make sure the dropdown-content positions itself based on this */
+  margin-bottom: 20px;
+}
+
+/* Dropdown button */
+.dropbtn {
+  width: 100%; /* Full width */
+  background-color: #2c2f33; /* Dark background */
+  color: white; /* Light text */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align to the left of the dropdown container */
+  right: 0; /* Align to the right of the dropdown container */
+  background-color: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Dropdown content search bar */
+.dropdown-content .search-container {
+  width: 100%; /* Full width */
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.search-container input[type="text"] {
+  width: 100%; /* Full width for input */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Dropdown links (categories) */
+.dropdown-content a {
+  width: 100%; /* Full width for links */
+  color: black;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block; /* Show the dropdown on hover */
+}
+
+.dropdown-content a:hover {
+  background-color: #008F11; /* Green accent on hover */
+  color: white; /* White text on hover */
+}
+
+/* Style the scrollbar */
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #008F11; /* Green accent for scrollbar */
+  border-radius: 5px;
+}
+/* Project grid layout */
+.project-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: space-between; /* Space between items */
+}
+
+/* Project cards */
+.project-grid > div {
+  flex: 0 1 calc(25% - 20px); /* Default: 4 items in a row */
+  margin-bottom: 20px; /* Space between rows */
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .project-grid > div {
+    flex: 0 1 calc(33.33% - 20px); /* 3 items in a row */
+  }
+}
+
+@media (max-width: 800px) {
+  .project-grid > div {
+    flex: 0 1 calc(50% - 20px); /* 2 items in a row */
+  }
+}
+
+@media (max-width: 500px) {
+  .project-grid > div {
+    flex: 0 1 100%; /* 1 item in a row */
+  }
+}

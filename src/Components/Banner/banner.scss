@@ -286,35 +286,69 @@
 }
 
 //animation text
-.designers {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--white);
-    color: transparent;
-    transition: all 0.5s;
-    position: relative;
-    white-space: nowrap; /* Ensure that words don't wrap to the next line */
-    display: inline-block; /* Ensures proper alignment and keeps the text inline */
-}
+// .designers {
+//     -webkit-text-stroke-width: 1px;
+//     -webkit-text-stroke-color: var(--white);
+//     color: transparent;
+//     transition: all 0.5s;
+//     position: relative;
+//     display: inline-block; // Ensure words stack correctly
+  
+//     &::before {
+//       content: attr(data-text);
+//       position: absolute;
+//       color: var(--base);
+//       width: 0px;
+//       overflow: hidden;
+//       animation: pulse-width 3s ease-in infinite;
+//       -webkit-text-stroke-width: 1px;
+//       -webkit-text-stroke-color: var(--base);
+//     }
+//   }
 
-.designers::before {
-    content: attr(data-text);
-    position: absolute;
-    color: var(--base);
-    width: 0;
-    overflow: hidden;
-    animation: pulse-width 3s ease-in-out infinite;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--base);
-    white-space: nowrap; /* Prevent multi-part words from breaking onto new lines */
-}
+// @keyframes pulse-width {
+//     50% {
+//         width: 100%;
+//     }
+// }
 
-@keyframes pulse-width {
-    50% {
-        width: 100%;
+// //animation text
+
+// //banner
+
+// .word-carousel {
+//     opacity: 1;
+//     transition: opacity 1.5s ease;
+//   }
+  
+//   .fade-out {
+//     opacity: 0;
+//   }
+  
+//   .fade-in {
+//     opacity: 1;
+//   }
+.word-carousel {
+    color: green; // Set the permanent green color
+    opacity: 0; // Start hidden
+  
+    &.fade-in {
+      animation: fadeIn 0.5s forwards; // Fade in effect
     }
-}
-
-//animation text
-
-//banner
-
+  
+    &.fade-out {
+      animation: fadeOut 0.5s forwards; // Fade out effect
+    }
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1; // Fade in to visible
+    }
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0; // Fade out to hidden
+    }
+  }
