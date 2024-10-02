@@ -7,6 +7,7 @@
     margin: 0 auto 60px;
     display: flex;
     align-items: center;
+    
     .nav-links {
       button {
         border: none;
@@ -110,7 +111,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #008F11; /* Green accent on hover */
+  background-color: var(--base); /* Green accent on hover */
   color: white; /* White text on hover */
 }
 
@@ -120,7 +121,7 @@
 }
 
 .dropdown-content::-webkit-scrollbar-thumb {
-  background-color: #008F11; /* Green accent for scrollbar */
+  background-color: var(--base); /* Green accent for scrollbar */
   border-radius: 5px;
 }
 /* Project grid layout */

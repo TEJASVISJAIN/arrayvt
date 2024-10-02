@@ -48,7 +48,7 @@ const AboutMe = ({ isTabActive }) => {
   return (
     <div className={`tabitem ${isTabActive === "about" ? "active" : ""} `}>
       <div className="about__v1wrap">
-        <div className="row g-4 align-items-lg-start align-items-center">
+        <div className="row g-4 align-items-lg-start align-items-center" style={{backgroundColor: "var(--base)"}}>
           <div className="col-lg-5">
             <div
               className="about__onethumb"

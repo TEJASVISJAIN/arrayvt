@@ -31,6 +31,7 @@
   border-bottom: 1px solid var(--cusborder);
   z-index: 9;
   position: relative;
+  background-color: var(--header);
   .container {
     @include breakpoint(xl) {
       max-width: 1805px;
@@ -411,11 +412,20 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--text-color); // Use your text color variable
+  color: var(--white); // Use your text color variable
 
   .icon {
     font-size: 24px; // Adjust icon size as needed
   }
 }
+
+/* ColorPicker position */
+.color-picker-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensures it's above other elements */
+}
+
 
 //>>>>> Header section <<<<<//

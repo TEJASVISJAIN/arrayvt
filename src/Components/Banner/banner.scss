@@ -1,6 +1,6 @@
 //banner
 .banner__section{
-    background: url("/src/assets/img/banner/banner-bg.png");
+    background: var(--base);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

@@ -1,4 +1,3 @@
-// Header.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -91,12 +90,11 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", isSticky);
     };
-  }, [theme]); // Add theme as dependency to update body class on theme change
+  }, [theme]);
 
-  const isSticky = (e) => {
+  const isSticky = () => {
     const header = document.querySelector(".header-section");
     const scrollTop = window.scrollY;
-
     scrollTop >= 35
       ? header.classList.add("menu-fixed", "animated", "fadeInDown")
       : header.classList.remove("menu-fixed");
@@ -124,30 +122,26 @@ const Header = () => {
             </Link>
           </div>
           <ul className={`main-menu ${menuActive ? "active" : ""}`}>
-            {menuList.map(({ id, name, path, dropDown, section }) => {
-              return (
-                <li key={id} onClick={() => handleSubMenu(id)}>
-                  <HashLink smooth to={`${path}${section ? section : ""}`}>
-                    {name}
-                  </HashLink>
-                  {dropDown?.length && (
-                    <ul className={`sub-menu ${dropDownId === id ? "sub-menu_active" : ""}`}>
-                      {dropDown.map(({ id, name, path }) => {
-                        return (
-                          <li key={id}>
-                            <HashLink smooth to={path}>
-                              {name}
-                            </HashLink>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
+            {menuList.map(({ id, name, path, dropDown, section }) => (
+              <li key={id} onClick={() => handleSubMenu(id)}>
+                <HashLink smooth to={`${path}${section ? section : ""}`}>
+                  {name}
+                </HashLink>
+                {dropDown?.length && (
+                  <ul className={`sub-menu ${dropDownId === id ? "sub-menu_active" : ""}`}>
+                    {dropDown.map(({ id, name, path }) => (
+                      <li key={id}>
+                        <HashLink smooth to={path}>
+                          {name}
+                        </HashLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ul>
-          <ColorPicker />
+
           <div className="menu__components d-flex align-items-center">
             <button onClick={handleToggle} className="theme-toggle">
               {theme === 'dark' ? "Dark Mode" : "Light Mode"}
@@ -182,6 +176,9 @@ const Header = () => {
         isSidebarActive={isSidebarActive}
         setIsSidebarActive={setIsSidebarActive}
       />
+
+      {/* Render ColorPicker outside the header */}
+      <ColorPicker />
     </header>
   );
 };

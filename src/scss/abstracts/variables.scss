@@ -31,6 +31,8 @@
 body.dark-mode {
   --body: #fff;
   --white: var(--base)
+  // --text: #fff
+  --header: #000
 }
 
 body.light-mode {
@@ -53,6 +55,7 @@ body.light-mode {
   --danger: #ed5050;
   --boxes1: rgba(26, 77, 190, 0.05);
   --cborder: #d9d9d9;
+  --header: #fff
 }
 
 body {
@@ -60,5 +63,5 @@ body {
 }
 
 .title {
-  color: var(--title); // Another example of using CSS variable
+  // color: var(--title); // Another example of using CSS variable
 }

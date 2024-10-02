@@ -88,7 +88,7 @@ const Banner = () => {
                 <span
                   className={`d-block designers word-carousel ${fadeEffect}`}
                   data-text={wordArray[currentWordIndex]}
-                  style={{ minWidth: '200px', display: 'inline-block' }}
+                  style={{ minWidth: '200px', display: 'inline-block', color: `var(--base)` }}
                 >
                   {wordArray[currentWordIndex]}
                 </span>

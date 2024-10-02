@@ -1,11 +1,12 @@
 //blog
 .blog__section {
-  background: url("/src/assets/img/about/about-bg.png") no-repeat center center;
+  background: var(--base) no-repeat center center;
   background-size: cover;
   overflow: hidden;
   .project__head {
     .common__sub {
       margin: 0 0 0;
+      color: var(--base);
       &::after {
         display: none;
       }

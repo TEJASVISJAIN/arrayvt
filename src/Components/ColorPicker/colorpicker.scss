@@ -9,3 +9,11 @@
     display: flex;
     margin-top: 10px;
   }
+
+  /* ColorPicker position */
+.color-picker-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensures it's above other elements */
+}
