@@ -31,7 +31,6 @@
   border-bottom: 1px solid var(--cusborder);
   z-index: 9;
   position: relative;
-  background-color: var(--header);
   .container {
     @include breakpoint(xl) {
       max-width: 1805px;
