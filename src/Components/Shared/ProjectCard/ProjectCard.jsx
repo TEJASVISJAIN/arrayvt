@@ -25,7 +25,7 @@ const ProjectCard = ({
         className="thumb mb-30 imgc"
         style={{
           width: "100%", 
-          height: "75%", 
+          height: "50%", 
           overflow: "hidden",
         }}
       >
@@ -35,17 +35,18 @@ const ProjectCard = ({
           style={{
             objectFit: "contain", 
             width: "100%",        
-            height: "100%",      
+            height: "100%",
+            maxHeight: "300px",      
           }}
         />
       </div>
       <div className="content d-flex align-items-center justify-content-between gap-2"
-           style={{ height: "25%" }}>  {/* 25% of the card height for the content */}
+           style={{ height: "25%" }}>  
         <Link to={"/portfolio"} className="left__cont">
-          <span className="base mb-2 mb-xxl-3 d-block text-uppercase">
+          <span className="base mb-2 mb-xxl-3 d-block text-uppercase" style={{fontSize: "10px", color: "var(--base) !important"}}>
             {heading}
           </span>
-          <h3>{subHeading}</h3>
+          <h6 style={{color: "var(--base)", fontWeight: "bold"}}>{subHeading}</h6>
         </Link>
         <div
           onClick={() => {

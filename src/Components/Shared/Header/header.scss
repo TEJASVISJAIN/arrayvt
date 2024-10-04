@@ -31,6 +31,7 @@
   border-bottom: 1px solid var(--cusborder);
   z-index: 9;
   position: relative;
+  background-color: black;
   .container {
     @include breakpoint(xl) {
       max-width: 1805px;
@@ -84,6 +85,7 @@
   width: 100%;
   position: relative;
   padding: 20px 0;
+  background-color: black;
   .menu__components {
     gap: 16px;
     .cmn--btn {

@@ -9,10 +9,10 @@ const WorkProcessCard = ({title, info, list}) => {
     >
       <div className="process__item">
         <h2 className="white mb-24">{title}</h2>
-        <p className="mb-30 pra fz-18">{info}</p>
+        <p className="mb-30 pra fz-18 white">{info}</p>
         <ul>
           {list.map((li, index) => (
-            <li key={index}>{li}</li>
+            <li key={index} className="white ">{li}</li>
           ))}
         </ul>
       </div>

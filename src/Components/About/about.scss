@@ -16,9 +16,8 @@
                     font-weight: 500;
                     border: unset;
                     padding: 16px 30px;
-                    color: var(--base);
+                    color: var(--white);
                     text-align: center;
-                    
                 }
                 &.active{
                     button{
@@ -88,7 +87,7 @@
     }
 }
 .about__v1wrap{
-    background: var(--base);
+    background: url("/src/assets/img/about/about-bg.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -120,7 +119,8 @@
         margin-top: 40px;
         .abox{
             border-radius: 10px;
-            background-color: rgb(29, 29, 29);
+            // background-color: rgb(29, 29, 29);
+            background-color: var(--base);
             padding: 35px 35px;
             border: 1px solid rgb(29, 29, 29);
             a{
@@ -174,7 +174,7 @@
 
 //awoard
 .awoard__section{
-    background: var(--base);
+    background: url("/src/assets/img/about/about-bg.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

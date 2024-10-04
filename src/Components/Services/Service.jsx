@@ -15,16 +15,16 @@ const Service = ({ image, heading, subHeading, para, id }) => {
           <img src={image} alt={`${heading}'s profile`} />
         </div>
         
-        <div className="serial__adjust">
+        <div className="serial__adjust" style={{color: "var(--base)"}}>
           <span> {id} </span>
           <div className="cont">
-            <h5>{subHeading}</h5>
+            <h5 style={{color: "var(--base)"}}>{subHeading}</h5>
             <h2>
-              <Link to={"/service-details"}> {heading} </Link>
+              <Link to={"/service-details"} style={{color: "var(--base)"}}> {heading} </Link>
             </h2>
           </div>
         </div>
-        <p className="pra">{para}</p>
+        <p className="pra" >{para}</p>
       </div>
       <Link to={"/service-details"} className="common__icon">
         <ArrowUpRight className="i" />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChromePicker } from "react-color";
 
-const ColorPicker = () => {
+const ColorPicker = ({ mode }) => {
   const [color, setColor] = useState("#ffffff"); // Default color
   const [showPicker, setShowPicker] = useState(false);
   const pickerRef = useRef(null); // Reference for the color picker
@@ -11,18 +11,24 @@ const ColorPicker = () => {
 
   const handleColorChange = (newColor) => {
     setColor(newColor.hex);
-    document.documentElement.style.setProperty("--base", newColor.hex);
-    localStorage.setItem("baseColor", newColor.hex); // Save to local storage
+
+    // Update the --base color depending on the mode (light or dark)
+    const baseVar = mode === "dark" ? "--base-dark" : "--base";
+    document.documentElement.style.setProperty(baseVar, newColor.hex);
+    
+    // Store color and mode-specific setting in localStorage
+    localStorage.setItem(`baseColor-${mode}`, newColor.hex);
   };
 
   // Retrieve saved color on mount
   useEffect(() => {
-    const savedColor = localStorage.getItem("baseColor");
+    const savedColor = localStorage.getItem(`baseColor-${mode}`);
     if (savedColor) {
       setColor(savedColor);
-      document.documentElement.style.setProperty("--base", savedColor);
+      const baseVar = mode === "dark" ? "--base-dark" : "--base";
+      document.documentElement.style.setProperty(baseVar, savedColor);
     }
-  }, []);
+  }, [mode]); // Watch for changes in the mode
 
   // Toggle color picker visibility
   const togglePicker = () => {

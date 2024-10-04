@@ -29,8 +29,26 @@
 }
 
 body.dark-mode {
-  --body: #fff;
-  --white: var(--base)
+  --body: #f5f5f5
+--white: #ffffff
+--title: #222222
+--mtitle: #003366
+--pra: #666666
+--subtitle: #4d4d4d
+--base: #0066cc 
+--hover: #005bb5
+--bg1: #f0f8ff
+--ftext: #333333
+--footer: #222222
+--cusborder: rgb(200, 200, 200)
+--border1: #cccccc
+--ratting: #ff9900
+--bgsection: #e6f0ff
+--success: #28a745
+--danger: #dc3545
+--boxes1: rgba(0, 102, 204, 0.05)
+--cborder: #e0e0e0
+--header: #f9f9f9 
 }
 
 body.light-mode {

@@ -7,7 +7,7 @@ const PageHeader = ({heading, page}) => {
       <div className="row g-4 justify-content-center">
         <div className="col-lg-8">
           <div className="breadcrumnd__wrap text-center">
-            <h1>{heading}</h1>
+            <h1 style={{color: "var(--base)"}}>{heading}</h1>
             <ul className="breakcrumnd__cont justify-content-center">
               <li>
                 <Link to="index-2.html">Home</Link>

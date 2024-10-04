@@ -48,7 +48,7 @@ const AboutMe = ({ isTabActive }) => {
   return (
     <div className={`tabitem ${isTabActive === "about" ? "active" : ""} `}>
       <div className="about__v1wrap">
-        <div className="row g-4 align-items-lg-start align-items-center" style={{backgroundColor: "var(--base)"}}>
+        <div className="row g-4 align-items-lg-start align-items-center" >
           <div className="col-lg-5">
             <div
               className="about__onethumb"
@@ -87,7 +87,7 @@ We invest in smart people with a bold mission who take big risks in large or new
                       >
                         <div className="abox">
                           <div className="about__contbox__item">
-                            <span className="ptext fz-18 mb-20 d-block">
+                            <span className=" fz-18 mb-20 d-block" style={{color: "var(--white)"}}>
                               {system}
                             </span>
                             <Link to={""}>{contact}</Link>
